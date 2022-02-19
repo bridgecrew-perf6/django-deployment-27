@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top"
+         <div class="container">
+             <ul class="nav navbar-nav">
+                 <li><a class="navbar-link" href="{% url 'app1:index' %}">DJANGO</a></li>
+                 <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
+                 <li><a class="navbar-link" href="{% url 'app1:register' %}">Register</a></li>
+                 {% if user.is_authenticated %}
+                 <li><a class="navbar-link" href="{% url 'app1:logout' %}">LogOut</a></li>
+                 {% else %}
+                 <li><a class="navbar-link" href="{% url 'app1:user_login' %}">LogIn</a></li>
+                 {% endif %}
+             </ul>
+         </div>
+    </nav>
+    {% block body_block %}
+    {% endblock %}
+</body>
+</html>
